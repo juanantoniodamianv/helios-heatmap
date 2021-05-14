@@ -3,7 +3,7 @@ import Axios from "axios";
 const limit = 1000;
 
 export async function getEvents(dataFilter) {
-  let filter = `filter[fields]=locations&filter[limit]=${limit}`;
+  let filter = `filter[fields]=locations&filter[fields]=account&filter[limit]=${limit}`;
   if (dataFilter.situation && dataFilter.situation !== "") {
     filter += `&filter[where][situation]=${dataFilter.situation}`;
   }
@@ -21,12 +21,24 @@ export async function getEvents(dataFilter) {
     (res) => res?.locations?.situation?.lat && res?.locations?.situation?.lng
   );
 
-  result = result.map((res) => {
+  const accountsCount = eventsByAccountsCount(result);
+
+  const eventPositions = result.map((res) => {
     return {
       lat: res.locations.situation.lat,
       lng: res.locations.situation.lng,
     };
   });
 
-  return result;
+  return { eventPositions, accountsCount };
+}
+
+function eventsByAccountsCount(events) {
+  let accounts = {};
+  events.forEach((res) => {
+    !accounts[res.account]
+      ? (accounts[res.account] = 1)
+      : accounts[res.account]++;
+  });
+  return Object.entries(accounts).sort((a, b) => b[1] - a[1]);
 }

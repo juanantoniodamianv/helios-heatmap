@@ -8,13 +8,19 @@ export default function MainPage() {
   const [situation, setSituation] = useState(null);
   const [dateSince, setDateSince] = useState(null);
   const [dateTo, setDateTo] = useState(null);
+  const [accounts, setAccounts] = useState(null);
 
   useEffect(() => {
     const getMapData = async () => {
-      const result = await getEvents({ situation, dateSince, dateTo });
-      setMapData(result);
+      const { eventPositions, accountsCount } = await getEvents({
+        situation,
+        dateSince,
+        dateTo,
+      });
+      setMapData(eventPositions);
+      setAccounts(accountsCount);
     };
-    
+
     getMapData();
     return setMapData([]);
   }, [situation, dateSince, dateTo]);
@@ -39,6 +45,7 @@ export default function MainPage() {
           onChangeSituation={() => onChangeSituation}
           onChangeDateSince={() => onChangeDateSince}
           onChangeDateTo={() => onChangeDateTo}
+          accounts={accounts}
         />
       </div>
     </>

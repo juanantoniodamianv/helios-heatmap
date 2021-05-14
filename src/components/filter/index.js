@@ -5,6 +5,7 @@ export default function Filter({
   onChangeSituation,
   onChangeDateSince,
   onChangeDateTo,
+  accounts,
 }) {
   return (
     <Form>
@@ -31,6 +32,16 @@ export default function Filter({
             </option>
           ))}
         </Form.Control>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>Top 5 - Events Per Account</Form.Label>
+        {accounts &&
+          Object.entries(accounts.slice(0, 4)).map((account, index) => (
+            <div key={index}>
+              <small>{account[1][0]}</small>
+              <small className="float-left">{account[1][1]}</small>
+            </div>
+          ))}
       </Form.Group>
     </Form>
   );
