@@ -44,10 +44,10 @@ export default function Filter({
       {accounts && (
         <Form.Group>
           <Form.Label>Top 5 - Events Per Account</Form.Label>
-          {Object.entries(accounts.slice(0, 4)).map((account, index) => (
+          {Object.entries(accounts.slice(0, 5)).map((account, index) => (
             <tr key={index}>
               <td className="text-muted">{account[1][0]}</td>
-              <td>{account[1][1]}</td>
+              <td right>{account[1][1]}</td>
             </tr>
           ))}
         </Form.Group>
