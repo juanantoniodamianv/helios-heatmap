@@ -25,7 +25,7 @@ export default function MainPage() {
     <>
       <Map data={mapData} />
       <div id="over_map">
-        <Filter onChangeSituation={() => onChangeSituation} />
+        <Filter onChangeSituation={() => onChangeSituation} data={mapData} />
       </div>
     </>
   );
