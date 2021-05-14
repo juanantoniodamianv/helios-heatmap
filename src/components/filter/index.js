@@ -6,6 +6,7 @@ export default function Filter({
   onChangeDateSince,
   onChangeDateTo,
   accounts,
+  data,
 }) {
   return (
     <Form>
@@ -43,6 +44,13 @@ export default function Filter({
             </div>
           ))}
       </Form.Group>
+      {data.length > 0 && (
+        <Form.Group className="my-3">
+          <Form.Label>
+            Provider Average Distance: {data[0].avgDistance || 0} KM
+          </Form.Label>
+        </Form.Group>
+      )}
     </Form>
   );
 }

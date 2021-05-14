@@ -46,6 +46,7 @@ export default function MainPage() {
           onChangeDateSince={() => onChangeDateSince}
           onChangeDateTo={() => onChangeDateTo}
           accounts={accounts}
+          data={mapData}
         />
       </div>
     </>
