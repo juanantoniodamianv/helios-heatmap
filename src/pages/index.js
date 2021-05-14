@@ -17,7 +17,7 @@ export default function MainPage() {
 
   return (
     <>
-      <Map data={mapData}/>
+      <Map data={mapData} />
       <div id="over_map">
         <Filter />
       </div>

@@ -517,3 +517,25 @@ export const data = [
   { lat: 37.752986, lng: -122.40311199999996 },
   { lat: 37.751266, lng: -122.40335500000003 },
 ];
+
+export const situations = [
+  { name: "Locksmith", value: "locksmith" },
+  { name: "Flat Tire", value: "flatTire" },
+  { name: "Fuel Delivery", value: "fuelDelivery" },
+  { name: "Jump Start", value: "jumpStart" },
+  { name: "Battery Diagnostic", value: "batteryDiagnostic" },
+  { name: "Battery Sale", value: "battery_sale" },
+  { name: "Tow Collision", value: "towCollision" },
+  { name: "Tow Breakdown", value: "towBreakdown" },
+  { name: "Tow Tire", value: "towTire" },
+  { name: "Tow Extraction", value: "towExtraction" },
+  { name: "Inspections", value: "inspections" },
+  { name: "Electricity", value: "electricity" },
+  { name: "Plumbing", value: "plumbing" },
+  { name: "Handyman", value: "handyman" },
+  { name: "Wheel Lift", value: "wheelLift" },
+  { name: "Tow Heavy Weight", value: "towHeavyWeight" },
+  { name: "Taxi To Airport", value: "taxi_to_airport" },
+  { name: "Glassworks", value: "glassworks" },
+  { name: "Home Locksmith", value: "home_locksmith" },
+];
