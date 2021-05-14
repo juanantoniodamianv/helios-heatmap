@@ -14,9 +14,8 @@ export default function MainPage() {
       const result = await getEvents({ situation, dateSince, dateTo });
       setMapData(result);
     };
-
+    
     getMapData();
-
     return setMapData([]);
   }, [situation, dateSince, dateTo]);
 
