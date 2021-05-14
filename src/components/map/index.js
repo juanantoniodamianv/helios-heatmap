@@ -14,7 +14,7 @@ export const MapContainer = ({
   google,
   initialCenter = defaultInitialCenter,
   gradient = defaultGradient,
-  data = defaultData,
+  data,
 }) => {
   return (
     <Map
