@@ -16,6 +16,7 @@ export const MapContainer = ({
   gradient = defaultGradient,
   data,
 }) => {
+  console.log({ data });
   return (
     <Map
       google={google}
@@ -25,12 +26,14 @@ export const MapContainer = ({
       mapTypeControl={false}
       streetViewControl={false}
     >
-      <HeatMap gradient={gradient} positions={data} opacity={1} radius={20} />
+      {data.length > 0 && (
+        <HeatMap gradient={gradient} positions={data} opacity={1} radius={20} />
+      )}
     </Map>
   );
 };
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyBVnW1Z3yVC1_eYaoOgl0rqkARuahuJV04",
-  libraries: ["visualization"]
+  libraries: ["visualization"],
 })(MapContainer);
