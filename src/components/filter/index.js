@@ -47,7 +47,7 @@ export default function Filter({
           {Object.entries(accounts.slice(0, 5)).map((account, index) => (
             <tr key={index}>
               <td className="text-muted">{account[1][0]}</td>
-              <td right>{account[1][1]}</td>
+              <td>{account[1][1]}</td>
             </tr>
           ))}
         </Form.Group>
