@@ -1,8 +1,3 @@
-export const mapStyles = {
-  width: "100%",
-  height: "100%",
-};
-
 export const gradient = [
   "rgba(0, 255, 255, 0)",
   "rgba(0, 255, 255, 1)",
