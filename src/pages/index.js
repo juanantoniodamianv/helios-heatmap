@@ -8,24 +8,26 @@ export default function MainPage() {
   const [situation, setSituation] = useState();
 
   useEffect(() => {
-    const getMapData = async () => {
-      const result = await getEvents();
-      setMapData(result);
-    };
-
     getMapData();
   }, []);
 
-  const onChangeSituation = (event) => {
+  const getMapData = async () => {
+    const result = await getEvents();
+    setMapData(result);
+  };
+
+  const onChangeSituation = async (event) => {
     console.log(event);
   };
 
   return (
-    <>
-      <Map data={mapData} />
-      <div id="over_map">
-        <Filter />
-      </div>
-    </>
+    mapData.length > 0 && (
+      <>
+        <Map data={mapData} />
+        <div id="over_map">
+          <Filter />
+        </div>
+      </>
+    )
   );
 }
