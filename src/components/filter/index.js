@@ -34,21 +34,22 @@ export default function Filter({
           ))}
         </Form.Control>
       </Form.Group>
-      <Form.Group>
-        <Form.Label>Top 5 - Events Per Account</Form.Label>
-        {accounts &&
-          Object.entries(accounts.slice(0, 4)).map((account, index) => (
-            <div key={index}>
-              <small>{account[1][0]}</small>
-              <small className="float-left">{account[1][1]}</small>
-            </div>
-          ))}
-      </Form.Group>
       {data.length > 0 && (
         <Form.Group className="my-3">
           <Form.Label>
             Provider Average Distance: {data[0].avgDistance || 0} KM
           </Form.Label>
+        </Form.Group>
+      )}
+      {accounts && (
+        <Form.Group>
+          <Form.Label>Top 5 - Events Per Account</Form.Label>
+          {Object.entries(accounts.slice(0, 4)).map((account, index) => (
+            <tr key={index}>
+              <td className="text-muted">{account[1][0]}</td>
+              <td>{account[1][1]}</td>
+            </tr>
+          ))}
         </Form.Group>
       )}
     </Form>
