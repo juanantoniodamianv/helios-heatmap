@@ -32,5 +32,5 @@ export const MapContainer = ({
 
 export default GoogleApiWrapper({
   apiKey: "AIzaSyBVnW1Z3yVC1_eYaoOgl0rqkARuahuJV04",
-  libraries: ["visualization"],
+  libraries: ["visualization"]
 })(MapContainer);
