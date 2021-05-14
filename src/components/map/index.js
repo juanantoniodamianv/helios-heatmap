@@ -16,6 +16,7 @@ export const MapContainer = ({
   gradient = defaultGradient,
   data,
 }) => {
+  console.log({ data });
   return (
     <Map
       google={google}

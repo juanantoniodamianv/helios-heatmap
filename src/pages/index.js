@@ -6,15 +6,25 @@ import { getEvents } from "../api/heatMapClient";
 export default function MainPage() {
   const [mapData, setMapData] = useState([]);
   const [situation, setSituation] = useState(null);
+  const [dateSince, setDateSince] = useState(null);
+  const [dateTo, setDateTo] = useState(null);
 
   useEffect(() => {
+    const getMapData = async () => {
+      const result = await getEvents({ situation, dateSince, dateTo });
+      setMapData(result);
+    };
+
     getMapData();
     return setMapData([]);
-  }, [situation]);
+  }, [situation, dateSince, dateTo]);
 
-  const getMapData = async () => {
-    const result = await getEvents({ situation });
-    setMapData(result);
+  const onChangeDateSince = (event) => {
+    setDateSince(event.target.value);
+  };
+
+  const onChangeDateTo = (event) => {
+    setDateTo(event.target.value);
   };
 
   const onChangeSituation = (event) => {
@@ -25,7 +35,12 @@ export default function MainPage() {
     <>
       <Map data={mapData} />
       <div id="over_map">
-        <Filter onChangeSituation={() => onChangeSituation} data={mapData} />
+        <Filter
+          onChangeSituation={() => onChangeSituation}
+          onChangeDateSince={() => onChangeDateSince}
+          onChangeDateTo={() => onChangeDateTo}
+          data={mapData}
+        />
       </div>
     </>
   );
