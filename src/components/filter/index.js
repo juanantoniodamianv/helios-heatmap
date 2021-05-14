@@ -1,7 +1,7 @@
 import { Form } from "react-bootstrap";
 import { situations } from "../../constants";
 
-export default function Filter() {
+export default function Filter({ onChangeSituation }) {
   return (
     <Form>
       <Form.Group className="mb-5">
@@ -21,7 +21,6 @@ export default function Filter() {
       <Form.Group className="my-5">
         <Form.Label>Situation</Form.Label>
         <Form.Control as="select">
-          <option>-</option>
           {situations.map((situation) => (
             <option value={situation.value}>{situation.name}</option>
           ))}

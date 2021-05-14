@@ -519,6 +519,7 @@ export const data = [
 ];
 
 export const situations = [
+  { name: "All", value: "" },
   { name: "Locksmith", value: "locksmith" },
   { name: "Flat Tire", value: "flatTire" },
   { name: "Fuel Delivery", value: "fuelDelivery" },

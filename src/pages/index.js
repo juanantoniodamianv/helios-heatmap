@@ -4,7 +4,8 @@ import Map from "../components/map";
 import { getEvents } from "../api/heatMapClient";
 
 export default function MainPage() {
-  const [mapData, setMapData] = useState(null);
+  const [mapData, setMapData] = useState([]);
+  const [situation, setSituation] = useState();
 
   useEffect(() => {
     const getMapData = async () => {
@@ -14,6 +15,10 @@ export default function MainPage() {
 
     getMapData();
   }, []);
+
+  const onChangeSituation = (event) => {
+    console.log(event);
+  };
 
   return (
     <>
