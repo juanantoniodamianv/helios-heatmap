@@ -5,13 +5,14 @@
 
 #over_map {
   position: absolute;
-  top: 15%;
+  top: 3%;
   left: 1em;
   width: 20em;
-  height: auto;
+  height: 90%;
   z-index: 1000;
   background-color: #303030;
   color: white;
   padding: 1em;
   border-radius: 1em;
+  overflow: auto;
 }
