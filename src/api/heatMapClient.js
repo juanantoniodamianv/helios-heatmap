@@ -1,7 +1,12 @@
 import Axios from "axios";
 
-export async function getEvents(filter) {
-  filter = filter || `filter[fields]=locations&filter[limit]=100`;
+const limit = 1000;
+
+export async function getEvents(dataFilter) {
+  let filter = `filter[fields]=locations&filter[limit]=${limit}`; 
+  if (dataFilter.situation && dataFilter.situation !== "") {
+    filter += `&filter[where][situation]=${dataFilter.situation}`;  
+  }
   let result = await Axios.get(
     `${process.env.REACT_APP_HEAT_MAP_API_URL}/api/Events?${filter}`
   );

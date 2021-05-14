@@ -25,7 +25,9 @@ export const MapContainer = ({
       mapTypeControl={false}
       streetViewControl={false}
     >
-      <HeatMap gradient={gradient} positions={data} opacity={1} radius={20} />
+      {data.length > 0 && (
+        <HeatMap gradient={gradient} positions={data} opacity={1} radius={20} />
+      )}
     </Map>
   );
 };

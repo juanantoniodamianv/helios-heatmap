@@ -20,9 +20,9 @@ export default function Filter({ onChangeSituation }) {
       </Form.Group>
       <Form.Group className="my-5">
         <Form.Label>Situation</Form.Label>
-        <Form.Control as="select">
+        <Form.Control as="select" onChange={onChangeSituation()}>
           {situations.map((situation) => (
-            <option value={situation.value}>{situation.name}</option>
+            <option value={situation.value} key={situation.value}>{situation.name}</option>
           ))}
         </Form.Control>
       </Form.Group>

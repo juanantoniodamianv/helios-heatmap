@@ -5,29 +5,28 @@ import { getEvents } from "../api/heatMapClient";
 
 export default function MainPage() {
   const [mapData, setMapData] = useState([]);
-  const [situation, setSituation] = useState();
+  const [situation, setSituation] = useState(null);
 
   useEffect(() => {
     getMapData();
-  }, []);
+    return setMapData([]);
+  }, [situation]);
 
   const getMapData = async () => {
-    const result = await getEvents();
+    const result = await getEvents({ situation });
     setMapData(result);
   };
 
-  const onChangeSituation = async (event) => {
-    console.log(event);
+  const onChangeSituation = (event) => {
+    setSituation(event.target.value);
   };
 
   return (
-    mapData.length > 0 && (
-      <>
-        <Map data={mapData} />
-        <div id="over_map">
-          <Filter />
-        </div>
-      </>
-    )
+    <>
+      <Map data={mapData} />
+      <div id="over_map">
+        <Filter onChangeSituation={() => onChangeSituation} />
+      </div>
+    </>
   );
 }
